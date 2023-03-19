@@ -21,6 +21,7 @@ pipeline {
             steps {
                 script {
                     dir('microservices-demo/deploy/kubernetes') {
+                        sh "aws eks update-kubeconfig --name myapp-eks-cluster"
                         sh "kubectl create namespace sock-shop"
                         sh "kubectl apply -f complete-demo.yaml"
             
